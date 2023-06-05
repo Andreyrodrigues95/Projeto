@@ -1,8 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  padding-left: 30px;
-  text-indent: -60px;
+  box-sizing: border-box;
 }
 
 :root {
@@ -11,7 +10,7 @@
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
-  --highlight-color: rgba(255, 255, 255, 0.2);
+  --highlight-color: rgba(255, 255, 255, 0.1);
   --switch-bg-url: url(./assets/moon.stars.svg);
 }
 
@@ -37,7 +36,7 @@ body * {
 
 #container {
   width: 100%;
-  max-width: 288px;
+  max-width: 588px;
   margin: 56px auto 0px;
   padding: 0 24px;
 }
@@ -54,12 +53,13 @@ body * {
 #profile p {
   font-weight: 500;
   line-height: 24px;
+  margin-top: 8px;
 }
 
 /* Switch */
 #switch {
   position: relative;
-  width: 120px;
+  width: 64px;
 
   margin: 4px auto;
 }
@@ -71,11 +71,11 @@ body * {
   border: 0;
   border-radius: 50%;
 
-  position: relative;
-  top: 32px;
-  right: 0;
-  left: 98px;
+  position: absolute;
+  top: 50%;
+  left: 0;
   z-index: 1;
+  transform: translateY(-50%);
 
   animation: slide-back 0.4s;
 }
@@ -90,11 +90,11 @@ body * {
 
 #switch span {
   display: block;
-  width: 30px;
+  width: 64px;
   height: 24px;
   background: var(--surface-color);
   border: 1px solid var(--stroke-color);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   border-radius: 9999px;
 }
 
@@ -117,7 +117,7 @@ ul li a {
   border: 1px solid var(--stroke-color);
   border-radius: 8px;
   backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  
   text-decoration: none;
   font-weight: 500;
   transition: background 0.2s;
@@ -153,10 +153,6 @@ ul li a:hover {
   background: var(--highlight-color);
 }
 
-.icon {
-  position: relative;
-}
-
 footer {
   padding: 24px 0;
   text-align: center;
@@ -177,7 +173,7 @@ footer {
 /* animation */
 @keyframes slide-in {
   from {
-    left: 100;
+    left: 0;
   }
   to {
     left: 50%;
@@ -189,6 +185,6 @@ footer {
     left: 50%;
   }
   to {
-    left: 100;
+    left: 0;
   }
 }
